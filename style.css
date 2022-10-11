@@ -1,0 +1,20 @@
+#var1 {
+			background-color: blue;
+			color: white;
+}
+
+#tit {
+			background-color: blue;
+			color: white;
+}
+
+#symbol {
+			display: flex;
+			margin-top: 50px;
+			width: 200px;
+			height: 200px;
+}
+
+h2 {
+	font-weight: normal;
+}
