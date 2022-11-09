@@ -2,34 +2,140 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel='stylesheet' href='style.css'>
-	<title>Войтенко К. Д., ІТ-94, Лаб. 1, В-105</title>
-	<script src='script.js'></script>
+	<title>Войтенко К. Д., ІТ-94, Лаб. 5, В-105</title>
+	<style>
+
+	.title {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form ul {
+		list-style-type: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.form ul li input {
+		width: 450px;
+		height: 50px;		
+		margin-top: 10px;
+	}
+
+	#confirm {
+		margin-top: 20px;
+		width: 450px;
+		height: 50px;
+		text-align: center;
+		border-color: grey;
+		background: ghostwhite;
+		color: grey;
+	}
+
+	.title_show {
+		text-align: center;
+	}
+
+	#form_show {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#form_show ul {
+		list-style-type: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#form_show ul li label {		
+		margin-top: 20px;
+		margin-right: 200px;
+	}
+
+	</style>
 </head>
 <body>
-<h2><p><strong><font size="7">Войтенко Кирило Денисович</font></strong></p>
-	<p>Одеса, 12.10.2001</p>
-	<p>Ліцей "Ланжеронівський" -> КПІ</p>
-	<ul>
-		<li>Волейбол</li>
-		<li>Музика</li>
-		<li id="var1" onclick="changeformat1(this.id)">Виготовлення спецій</li>
-	</ul>
-	<ol>
-		<li id="tit" onclick="changeformat2()">Серіал - "Supernatural"</li>
-		<li>Серіал - "Lucifer"</li>
-		<li>Аніме - "Seven Deadly Sins"</li>
-		<li>Книга - "Vampire Diaries"</li>
-		<li>Книга - "Howl"</li>
-	</ol>
-	<p>Дивовижне і незвичайне місто Лондон - величезне серце Великобританії, найбільшої держави Європи, і його безперечний лідер за кількістю населення. Це не тільки улюблене місце туристів, а й місто світового значення, який веде за собою величезний запас культури.</p>
-	<Img id="symbol" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/London_Montage_L.jpg/413px-London_Montage_L.jpg" style="width: 200; height: 200;">
-	<button id="add" onclick="add('symbol')">Додати</button>
-	<button id="increase" onclick="increase('symbol')">Збильшити</button>
-	<button id="decrease" onclick="decrease('symbol')">Зменшити</button>
-	<button id="delete" onclick="del('symbol')">Видалити</button>
-</h2>
+	<h1 class="title">Форма для заповнення</h1>
+	<div class="form">
+		<ul>
+			<li>
+				<input type="text" id="name" placeholder="ПІБ">
+			</li>
+			<li>
+				<input type="text" id="faculty" placeholder="Факультет">
+			</li>
+			<li>
+				<input type="date" id="date" placeholder="Дата народж.">
+			</li>
+			<li>
+				<input type="text" id="address" placeholder="Адреса">
+			</li>
+			<li>
+				<input type="text" id="email" placeholder="e-mail">
+			</li>
+			<li>
+				<button id="confirm" onclick="show()">Підтвердити</button>
+			</li>
+		</ul>
+	</div>
+	<div id="form_show" style="display: none;">
+		<label class="title_show">Введені дані</label>
+		<ul>
+			<li>
+				<label class="text">ПІБ: 
+					<label id="name_show"></label>
+				</label>
+			</li>
+			<li>
+				<label class="text">Факультет:
+					<label id="faculty_show"></label>
+				</label>
+			</li>
+			<li>
+				<label class="text">Дата народж.:
+					<label id="date_show"></label>
+				</label>
+			</li>
+			<li>
+				<label class="text">Адреса:
+					<label id="address_show"></label>
+				</label>
+			</li>
+			<li>
+				<label class="text">e-mail:
+					<label id="email_show"></label>
+				</label>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>
-
+<script type="text/javascript">
+	function show(){
+		let display = document.getElementById('form_show').style.display;
+		let name = document.getElementById('name').value;
+		let faculty = document.getElementById('faculty').value;
+		let date = document.getElementById('date').value;
+		let address = document.getElementById('address').value;
+		let email = document.getElementById('email').value;
+		if (name === 'Войтенко К. Д.' && faculty === 'ФІОТ') {
+			if (display === 'none') {
+			document.getElementById('form_show').style.display = 'flex';
+			let name_show = document.getElementById('name_show').innerHTML = name;
+			let faculty_show = document.getElementById('faculty_show').innerHTML = faculty;
+			let date_show = document.getElementById('date_show').innerHTML = date;
+			let address_show = document.getElementById('address_show').innerHTML = address;
+			let email_show = document.getElementById('email_show').innerHTML = email;
+		}
+		}
+		else {
+			alert('Невірно введені дані');
+		}
+}
+</script>
 

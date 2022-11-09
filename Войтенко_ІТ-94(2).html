@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Войтенко К. Д., ІТ-94, Лаб. 5(2), В-105</title>
+	<style>
+	.content {
+		margin-left: 550px;
+		margin-top: 200px;
+	}
+
+	.grid {
+		display: grid;
+  		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  		border-color: black;
+  		width: 400px;
+	}
+
+	.button{
+  		color: black;
+  		border-color: black; 
+        border-style: solid;
+        padding: 5px; 
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+  		background: white;
+  		font-size: 20px;
+  		font-weight: bold;
+  		font-family: inherit;
+  	}
+
+	.button1{
+		color: black;
+		border-color: black;
+		border-style: solid;
+		padding: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: white;
+		font-size: 20px;
+		font-weight: bold;
+		font-family: inherit;
+		z-index: 10;
+	}
+
+	#colorWell {
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<input type="color" value="#ff0000" id="colorWell">
+		<div class="grid" id="row_1">
+	<div class="button" id="1">1</div>
+	<div class="button" id="2">2</div>
+	<div class="button" id="3">3</div>
+	<div class="button" id="4">4</div>
+	<button class="button1" id="variant" onmousemove="change_color()" onclick="inputColor()" ondblclick="changeAll()">5</button>
+	<div class="button" id="6">6</div>
+</div>
+<div class="grid" id="row_2"> 
+	<div class="button" id="7">7</div>
+	<div class="button" id="8">8</div>
+	<div class="button" id="9">9</div>
+	<div class="button" id="10">10</div>
+	<div class="button" id="11">11</div>
+	<div class="button" id="12">12</div>
+</div>
+<div class="grid" id="row_3"> 
+	<div class="button" id="13">13</div>
+	<div class="button" id="14">14</div>
+	<div class="button" id="15">15</div>
+	<div class="button" id="16">16</div>
+	<div class="button" id="17">17</div>
+	<div class="button" id="18">18</div>
+</div>
+<div class="grid" id="row_4"> 
+	<div class="button" id="19">19</div>
+	<div class="button" id="20">20</div>
+	<div class="button" id="21">21</div>
+	<div class="button" id="22">22</div>
+	<div class="button" id="23">23</div>
+	<div class="button" id="24">24</div>
+</div>
+<div class="grid" id="row_5"> 
+	<div class="button" id="25">25</div>
+	<div class="button" id="26">26</div>
+	<div class="button" id="27">27</div>
+	<div class="button" id="28">28</div>
+	<div class="button" id="29">29</div>
+	<div class="button" id="30">30</div>
+</div>
+<div class="grid" id="row_6"> 
+	<div class="button" id="31">31</div>
+	<div class="button" id="32">32</div>
+	<div class="button" id="33">33</div>
+	<div class="button" id="34">34</div>
+	<div class="button" id="35">35</div>
+	<div class="button" id="36">36</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	function change_color() {
+		variante = document.getElementById('variant').style;
+		variante.setProperty("background", "blue");
+	}
+
+	function changeAll() {
+		all = document.getElementsByClassName('button');
+		for (let a of all) {
+			a.style.setProperty("background", "red");
+		}
+	}
+
+	function inputColor() {
+		color = document.getElementById('colorWell').style;
+		color.display = 'flex';
+	}
+
+	window.addEventListener("load", startup, false);
+
+	function startup() {
+		var colorWell = document.querySelector("#colorWell");
+		colorWell.addEventListener("input", updateFirst, false);
+		colorWell.select();
+	}
+
+	function updateFirst(event) {
+		var variant = document.getElementById("variant");
+
+		if (variant) {
+			variant.style.background = event.target.value;
+		}
+	}
+</script>
+
